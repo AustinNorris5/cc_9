@@ -20,7 +20,7 @@ class Employee {
     };
 };
 
-//Test Cases
+//Test Cases for Task 1
 const emp1 = new Employee("Alice Johnson", 101, "Sales", 5000);
 console.log(emp1.getDetails());
 console.log(emp1.calculateAnnualSalary());
@@ -45,7 +45,7 @@ class Manager extends Employee {
       };
 };
 
-//Test cases
+//Test cases for Task 2
 const mgr1 = new Manager("John Smith", 201, "IT", 8000, 5);
 console.log(mgr1.getDetails());
 console.log(mgr1.calculateBonus()); 
@@ -68,11 +68,20 @@ class Company {
 listEmployees() {
     this.employees.forEach(employee => console.log(employee.getDetails()));
     };
+
+//Task 4: Implementing a Payroll System
+
+//Add a method calculateTotalPayroll() to the Company class that returns the sum of all employee salaries
+    calculateTotalPayroll() {
+        return this.employees.reduce((total, employee) => total + employee.calculateAnnualSalary(), 0);
+    };
 };
 
-//Test cases
+//Test cases for Task 3
 const company = new Company("TechCorp");
 company.addEmployee(emp1);
 company.addEmployee(mgr1);
 company.listEmployees();
  
+//Test cases for Task 4
+console.log(company.calculateTotalPayroll()); 
